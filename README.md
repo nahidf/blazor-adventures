@@ -1,2 +1,2 @@
 # blazor-adventures
-Sample code for Blazor
+Sample code for Blazor 
