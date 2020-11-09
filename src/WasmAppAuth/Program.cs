@@ -16,7 +16,7 @@ namespace WasmAppAuth
             {
                 // Configure your authentication provider options here.
                 // For more information, see https://aka.ms/blazor-standalone-auth
-                options.ProviderOptions.Authority = "http://localhost:5001";
+                options.ProviderOptions.Authority = "https://localhost:5001";
                 options.ProviderOptions.ClientId = "wasmappauth-client";
                 options.ProviderOptions.ResponseType = "code";
             });

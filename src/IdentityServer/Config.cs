@@ -32,9 +32,9 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.Code,
                     RequirePkce = true,
 
-                    AllowedCorsOrigins = { "http://localhost:5005" },
-                    RedirectUris = { "http://localhost:5005/authentication/login-callback" },
-                    PostLogoutRedirectUris = { "http://localhost:5005/authentication/logout-callback" },
+                    AllowedCorsOrigins = { "https://localhost:5015" },
+                    RedirectUris = { "https://localhost:5015/authentication/login-callback" },
+                    PostLogoutRedirectUris = { "https://localhost:5015/authentication/logout-callback" },
 
                     AllowedScopes = {"openid", "profile"},
                 }
