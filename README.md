@@ -4,7 +4,7 @@ This repo contains Sample code supporting my Blazor blog series https://nahidfa.
 
 ## post-1-https 
 
-The `post-1-https` branch contains sample code for [Blazor WebAssembly - Authentication with IdentityServer4](https://nahidfa.com/posts/blazor-webassembly-with-identityserver4-part-1/).
+The `post-1-https` branch contains sample code for [Blazor WebAssembly - Authentication with IdentityServer4](https://nahidfa.com/posts/blazor-webassembly-authentication-and-authorization-with-identityserver4/).
 
 Solution structure: 
 
