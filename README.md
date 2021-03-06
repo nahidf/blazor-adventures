@@ -14,4 +14,18 @@ Solution structure:
    - WasmAppAuth.csproj 
 ```
 
+## post-2-latest 
+
+The `post-2-latest` branch contains sample code for [Blazor WebAssembly - Calling a protected API using access token](https://nahidfa.com/posts/blazor-webassembly-calling-a-protected-api-using-access-token/).
+
+Solution structure: 
+
+```
+- BlazorSecurity.sln 
+  - IdentityServer.csproj 
+  - WasmAppAuth.csproj
+  - Api.csproj
+  - Models.csproj
+```
+
 
