@@ -13,12 +13,25 @@ namespace IdentityServer
             new IdentityResource[]
             { 
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
+                new IdentityResources.Profile()
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
-            { };
+            {
+                new ApiScope("weather.read"),
+                new ApiScope("weather.write"),
+                new ApiScope("weather.delete")
+            };
+
+        public static IEnumerable<ApiResource> ApiResources =>
+            new ApiResource[]
+            {
+                new ApiResource("weatherapi", "Weather API")
+                {
+                    Scopes = { "weather.read", "weather.write", "weather.delete" }
+                }
+            };
 
         public static IEnumerable<Client> Clients =>
             new Client[]
@@ -36,7 +49,7 @@ namespace IdentityServer
                     RedirectUris = { "https://localhost:5015/authentication/login-callback" },
                     PostLogoutRedirectUris = { "https://localhost:5015/authentication/logout-callback" },
 
-                    AllowedScopes = {"openid", "profile"},
+                    AllowedScopes = {"openid", "profile", "offline_access", "weather.read" },
                 }
             };
     }

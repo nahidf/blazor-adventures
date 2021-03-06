@@ -1,8 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WasmAppAuth.Infrastructure;
+using WasmAppAuth.Services;
 
 namespace WasmAppAuth
 {
@@ -13,7 +17,13 @@ namespace WasmAppAuth
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient{ BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddScoped<CustomAuthorizationMessageHandler>();
+            builder.Services.AddHttpClient<WeatherForecastHttpClient>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5016");
+            }).AddHttpMessageHandler<CustomAuthorizationMessageHandler>();
 
             builder.Services.AddOidcAuthentication(options =>
             {
@@ -22,6 +32,8 @@ namespace WasmAppAuth
                 options.ProviderOptions.Authority = "https://localhost:5001";
                 options.ProviderOptions.ClientId = "wasmappauth-client";
                 options.ProviderOptions.ResponseType = "code";
+
+                //options.ProviderOptions.DefaultScopes.Add("weather.read");
             });
 
             await builder.Build().RunAsync();
