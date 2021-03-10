@@ -1,0 +1,9 @@
+﻿<AuthorizeView Roles="Editor">
+    <Authorized>
+        Hello @context.User.Identity.Name!
+        You are Editor!
+    </Authorized>
+    <NotAuthorized>
+        User is not authenticated or Editor!
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,9 @@
+﻿<AuthorizeView Policy="delete-access">
+    <Authorized>
+        Hello @context.User.Identity.Name 
+        You have delete access!
+    </Authorized>
+    <NotAuthorized>
+        User is not authenticated or has no delete access!
+    </NotAuthorized>
+</AuthorizeView>

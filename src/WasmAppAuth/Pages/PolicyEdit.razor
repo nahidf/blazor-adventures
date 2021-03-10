@@ -1,0 +1,9 @@
+﻿<AuthorizeView Policy="edit-access">
+    <Authorized>
+        Hello @context.User.Identity.Name 
+        You have edit access!
+    </Authorized>
+    <NotAuthorized>
+        User is not authenticated or has no edit access!
+    </NotAuthorized>
+</AuthorizeView>
