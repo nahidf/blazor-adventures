@@ -28,4 +28,18 @@ Solution structure:
   - Models.csproj
 ```
 
+## post-3-latest 
+
+The `post-3-latest` branch contains sample code for [Blazor WebAssembly - Role-based and Policy-based authorization](https://nahidfa.com/posts/blazor-webassembly-role-based-and-policy-based-authorization/).
+
+Solution structure: 
+
+```
+- BlazorSecurity.sln 
+  - IdentityServer.csproj 
+  - WasmAppAuth.csproj
+  - Api.csproj
+  - Models.csproj
+```
+
 
