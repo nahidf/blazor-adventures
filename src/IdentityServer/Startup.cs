@@ -1,6 +1,9 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
+
+using IdentityServer.Quickstart.Services;
+using IdentityServer4.Test;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +35,8 @@ namespace IdentityServer
                 .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
-                .AddTestUsers(TestUsers.Users);              
+                .AddTestUsers(TestUsers.Users)
+                .AddProfileService<TestUserProfileServiceEx>();               
 
 
             // not recommended for production - you need to store your key material somewhere secure

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -34,6 +33,25 @@ namespace WasmAppAuth
                 options.ProviderOptions.ResponseType = "code";
 
                 //options.ProviderOptions.DefaultScopes.Add("weather.read");
+
+                options.UserOptions.RoleClaim = "role";
+            }).AddAccountClaimsPrincipalFactory<AccountClaimsPrincipalFactoryEx>();
+
+            builder.Services.AddAuthorizationCore(config =>
+            {
+                config.AddPolicy("edit-access",
+                    new AuthorizationPolicyBuilder().
+                        RequireAuthenticatedUser().
+                        RequireClaim("role", "Editor").
+                        Build()
+                    );
+
+                config.AddPolicy("delete-access",
+                    new AuthorizationPolicyBuilder().
+                        RequireAuthenticatedUser().
+                        RequireRole("Admin").
+                        Build()
+                    );                
             });
 
             await builder.Build().RunAsync();
